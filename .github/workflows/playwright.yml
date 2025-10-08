@@ -25,3 +25,11 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+        #Abdullah Aladham Edits below
+  
+    - name: Prettier Code Check 
+      run: npx prettier --check
+
+    - name: eslint quality check
+      run: npm run lint
+
