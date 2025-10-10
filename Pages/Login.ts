@@ -12,14 +12,14 @@ constructor(page:Page){
         password: ()=>  this.page.locator('input[name="password"]'),
         // inputalert:(page:Page)=>  this.page.getByRole('span', {name :'required'}),
         loginbutton: ()=> this.page.locator('button[type="submit"]'),
-        inputErrmsg1st:()=>this.page.locator("span[class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'").first(),
-        inputErrmsg2nd: ()=>this.page.locator("span[class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'").last(),
+        inputErrmsg1st:()=>this.page.locator("span").getByText("Required").first(),
+        inputErrmsg2nd: ()=>this.page.locator("span").getByText("Required").last(),
         invalidcredentialsMsg: ()=>this.page.getByText('Invalid credentials')
     };
   async   login(username:string,password:string){
          await   this.elements.username().fill(username);
-       await this.elements.password().fill(password);
-        await this.elements.loginbutton().click();
+         await this.elements.password().fill(password);
+         await this.elements.loginbutton().click();
     
     }
     async pageUrlAssertion(){

@@ -23,23 +23,29 @@ test('successfuly logs in',async({page})=>{
 
 })
 test('Fails to Login due to wrong password',async({page})=>{
+         await  page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",{timeout:10000});
+
         const loginobj:Login =new Login(page);
 
-    await loginobj.login(invalid_users.username,invalid_users.password);
+    await loginobj.login(invalid_users[1].username,invalid_users[1].password);
 
 
 })
 test('Fails to login due to wrong username',async({page})=>{
+         await  page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",{timeout:10000});
+
         const loginobj:Login =new Login(page);
 
-     loginobj.login(invalid_users.username,invalid_users.password);
+     await loginobj.login(invalid_users[0].username,invalid_users[0].password);
 
 
 })
 test('tries to log in with blank data',async({page})=>{
+         await  page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",{timeout:10000});
+
         const loginobj:Login =new Login(page);
 
-    loginobj.login_with_blank_data();
+   await loginobj.login_with_blank_data();
 
 
 })
