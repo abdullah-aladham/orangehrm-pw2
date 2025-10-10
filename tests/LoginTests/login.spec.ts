@@ -15,8 +15,9 @@ const invalid_users = JSON.parse(fs.readFileSync(invalidData, 'utf-8'));
 // })
 test('successfuly logs in',async({page})=>{
         const loginobj:Login =new Login(page);
+     await  page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",{timeout:10000});
 
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    // await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
     await loginobj.login(valid_users[0].username,valid_users[0].password);
 
 
@@ -31,14 +32,14 @@ test('Fails to Login due to wrong password',async({page})=>{
 test('Fails to login due to wrong username',async({page})=>{
         const loginobj:Login =new Login(page);
 
-    await loginobj.login(invalid_users.username,invalid_users.password);
+     loginobj.login(invalid_users.username,invalid_users.password);
 
 
 })
 test('tries to log in with blank data',async({page})=>{
         const loginobj:Login =new Login(page);
 
-    await loginobj.login_with_blank_data();
+    loginobj.login_with_blank_data();
 
 
 })

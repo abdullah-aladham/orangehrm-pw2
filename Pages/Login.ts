@@ -1,4 +1,4 @@
-import { Browser, chromium, Page } from "@playwright/test";
+import { Browser, chromium, expect, Page } from "@playwright/test";
 
 // import Page from "@playwright/test";
 class Login {
@@ -8,19 +8,34 @@ constructor(page:Page){
 }
 
     elements={
-        username: ()=>  this.page.locator("input[type='text']"),
-        password: ()=>  this.page.locator('input[type="password"]'),
+        username: ()=>  this.page.locator("input[name='username']"),
+        password: ()=>  this.page.locator('input[name="password"]'),
         // inputalert:(page:Page)=>  this.page.getByRole('span', {name :'required'}),
         loginbutton: ()=> this.page.locator('button[type="submit"]'),
+        inputErrmsg1st:()=>this.page.locator("span[class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'").first(),
+        inputErrmsg2nd: ()=>this.page.locator("span[class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'").last(),
+        invalidcredentialsMsg: ()=>this.page.getByText('Invalid credentials')
     };
-    async login(username:string,password:string){
-       this.elements.username().fill(username);
-       this.elements.password().fill(password);
-        this.elements.loginbutton().click();
+  async   login(username:string,password:string){
+         await   this.elements.username().fill(username);
+       await this.elements.password().fill(password);
+        await this.elements.loginbutton().click();
+    
     }
-     login_with_blank_data(){
+    async pageUrlAssertion(){
+        await expect(this.page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
+    }
+    async InvalidCredentialsBoxAssertion(){
+        await expect(this.elements.invalidcredentialsMsg()).toBeVisible();
+    }
+    async inputErrMsgAppearAssertion(){
+       await expect(this.elements.inputErrmsg1st()).toBeVisible();
+       await expect(this.elements.inputErrmsg2nd()).toBeVisible();
+    }
+     async login_with_blank_data(){
        
-        this.elements.loginbutton().click();
+     await   this.elements.loginbutton().click();
+     await  this.inputErrMsgAppearAssertion();
 
     }
 }

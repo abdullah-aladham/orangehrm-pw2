@@ -1,12 +1,11 @@
 class Employee{
-    id:string
+    
      firstname:string;
      lastname:string;
      username:string;
     password:string;
     confirmpass:string;
-    constructor(id:string,firstname:string,lastname:string,username:string,password:string){
-        this.id=id;
+    constructor(firstname:string,lastname:string,username:string,password:string){
         this.firstname=firstname;
         this.lastname=lastname;
         this.username=username;
@@ -14,12 +13,5 @@ class Employee{
         this.confirmpass=this.password;
 
     }
-    AddNewEmployee(){
-
-    }
-    SearchForEmployee(){
-
-    }
-    EditEmployee(){}
-    DeleteEmployee(){}
 }
+export default Employee;
