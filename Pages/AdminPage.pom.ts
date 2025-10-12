@@ -1,29 +1,29 @@
-import { Page,expect } from "@playwright/test";
+import { Page, expect } from "@playwright/test";
 
-class AdminPage{
-    readonly page:Page;
-    constructor(page:Page){
-        this.page=page;
-
-    }
-elements={
-    AdminPage : ()=> this.page.getByText(""),
-    PIM: ()=> this.page.getByText("PIM"),
-    Leave:()=>this.page.getByText("Leave"),
-Time:()=>this.page.getByText("Time"),
-    Recruitemet:()=>this.page.getByText("Recruitement"),
-MyInfo:()=>this.page.getByText("My Info"),
-Performance:()=>this.page.getByText("Performance"),
-    Dashboard:()=>this.page.getByText("Dashboard"),
-Directory: ()=>this.page.getByText("Directory"),
-Maintenance: ()=>this.page.getByText("Maintenance"),
-Claim: ()=>this.page.getByText("Claim"),
-    Buzz: ()=>this.page.getByText("Buzz")
-}
-async NavigatetoPIM(){
+class AdminPage {
+  readonly page: Page;
+  constructor(page: Page) {
+    this.page = page;
+  }
+  elements = {
+    AdminPage: () => this.page.getByText(""),
+    PIM: () => this.page.getByText("PIM"),
+    Leave: () => this.page.getByText("Leave"),
+    Time: () => this.page.getByText("Time"),
+    Recruitemet: () => this.page.getByText("Recruitement"),
+    MyInfo: () => this.page.getByText("My Info"),
+    Performance: () => this.page.getByText("Performance"),
+    Dashboard: () => this.page.getByText("Dashboard"),
+    Directory: () => this.page.getByText("Directory"),
+    Maintenance: () => this.page.getByText("Maintenance"),
+    Claim: () => this.page.getByText("Claim"),
+    Buzz: () => this.page.getByText("Buzz"),
+  };
+  async NavigatetoPIM() {
     await this.elements.PIM().click();
-    await expect(this.page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList");
-}
-
+    await expect(this.page).toHaveURL(
+      "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
+    );
+  }
 }
 export default AdminPage;
