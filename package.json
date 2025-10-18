@@ -10,7 +10,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@faker-js/faker": "^10.0.0",
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^24.6.2",
     "eslint": "^9.37.0",
     "prettier": "^3.6.2"
