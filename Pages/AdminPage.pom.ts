@@ -25,5 +25,11 @@ class AdminPage {
       "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
     );
   }
+  async NavigatetoLeavePage(){
+    await this.elements.Leave();
+    await expect(this.page).toHaveURL(
+      "https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewMyLeaveList"
+    ); 
+  }
 }
 export default AdminPage;

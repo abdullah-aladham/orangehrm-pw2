@@ -22,6 +22,7 @@ test("successfuly logs in", async ({ page }) => {
 
   // await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
   await loginobj.login(valid_users[0].username, valid_users[0].password);
+   await loginobj.pageUrlAssertion();
 });
 test("Fails to Login due to wrong password", async ({ page }) => {
   await page.goto(
@@ -32,6 +33,7 @@ test("Fails to Login due to wrong password", async ({ page }) => {
   const loginobj: Login = new Login(page);
 
   await loginobj.login(invalid_users[1].username, invalid_users[1].password);
+  await loginobj.InvalidCredentialsBoxAssertion()
 });
 test("Fails to login due to wrong username", async ({ page }) => {
   await page.goto(
@@ -42,6 +44,8 @@ test("Fails to login due to wrong username", async ({ page }) => {
   const loginobj: Login = new Login(page);
 
   await loginobj.login(invalid_users[0].username, invalid_users[0].password);
+  await loginobj.InvalidCredentialsBoxAssertion();
+
 });
 test("tries to log in with blank data", async ({ page }) => {
   await page.goto(

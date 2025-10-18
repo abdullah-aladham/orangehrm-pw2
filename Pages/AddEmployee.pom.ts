@@ -1,4 +1,6 @@
-import { Page } from "@playwright/test";
+import { Page,expect } from "@playwright/test";
+import Employee from '../Entities/employee';
+import {faker} from '@faker-js/faker';
 class addEmployeePage {
   readonly page: Page;
   constructor(page: Page) {
@@ -25,6 +27,26 @@ class addEmployeePage {
     username: string,
     password: string,
   ) {
+   await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList");
+    await this.elements.Addbtn().click();
+
+    await this.elements.firstName().fill(firstName);
+    //    await this.elements.MiddleName().fill(MiddleName);
+    await this.elements.lastName().fill(lastName);
+    await this.elements.createLoginDetailsBtn().click();
+    await this.elements.username().fill(username);
+    await this.elements.password().fill(password);
+    await this.elements.confirmpass().fill(password);
+    await this.elements.Savebtn().click();
+  }
+  async AddEmployeeInvalid(
+
+  ){
+    let firstName=faker.person.firstName();
+    let lastName =faker.person.lastName();
+    let username =faker.internet.username();
+    let password=faker.internet.password();
+    const emp:Employee =new Employee(firstName,lastName,username,password)
     await this.elements.Addbtn().click();
 
     await this.elements.firstName().fill(firstName);
