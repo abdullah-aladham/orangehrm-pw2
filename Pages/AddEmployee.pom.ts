@@ -58,5 +58,12 @@ class addEmployeePage {
     await this.elements.confirmpass().fill(password);
     await this.elements.Savebtn().click();
   }
+  async getEmpNumber(){
+   const url =  this.page.url();
+   const parsing = new URL(url);
+   const slashsplit= parsing.pathname.split('/');
+   const EmpNum=slashsplit[slashsplit.length-1];
+   console.log('Employee Number is' + EmpNum);
+  }
 }
 export default addEmployeePage;
