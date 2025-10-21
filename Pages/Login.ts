@@ -17,7 +17,8 @@ class Login {
     inputErrmsg2nd: () =>
       this.page.locator("span").getByText("Required").last(),
     invalidcredentialsMsg: () => this.page.getByText("Invalid credentials"),
-    logoutbtn : ()=> this.page.locator('a[class="oxd-userdropdown-link"]')
+    userprofilebtn: ()=>this.page.locator('i[class="oxd-icon bi-caret-down-fill oxd-userdropdown-icon"]'),
+    logoutbtn : ()=> this.page.getByRole('menuitem', { name: 'Logout' })
   };
   async pageUrlAssertion() {
     await expect(this.page).toHaveURL(
@@ -39,6 +40,7 @@ class Login {
   async InvalidCredentialsBoxAssertion() {
     await expect(this.elements.invalidcredentialsMsg()).toBeVisible();
   }
+
   async inputErrMsgAppearAssertion() {
     await expect(this.elements.inputErrmsg1st()).toBeVisible();
     await expect(this.elements.inputErrmsg2nd()).toBeVisible();
@@ -49,6 +51,7 @@ class Login {
     await this.inputErrMsgAppearAssertion();
   }
   async logout(){
+    this.elements.userprofilebtn().click();
     this.elements.logoutbtn().click();
   }
 }

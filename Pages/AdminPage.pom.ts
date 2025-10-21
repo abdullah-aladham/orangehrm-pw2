@@ -26,8 +26,11 @@ class AdminPage {
     );
   }
   async NavigatetoLeavePage(){
-    await this.elements.Leave();
-    await expect(this.page).toHaveURL(
+    await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/leave/applyLeave");
+   
+  }
+  async LeavePageAssertion(){
+     await expect(this.page).toHaveURL(
       "https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewMyLeaveList"
     ); 
   }

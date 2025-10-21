@@ -18,10 +18,14 @@ class EmployeeLeavePage{
         LeaveTypeSelectInput : ()=> this.page.locator('div[class="oxd-select-text oxd-select-text--active"]'),
         LeaveTypeoption: ()=>this.page.locator('div[class="oxd-select-option"]'),
         FromDateInput: ()=>this.page.locator('input[class="oxd-input oxd-input--active"]').nth(1),
-        ToDateInput: ()=>this.page.locator('input[class="oxd-input oxd-input--active"').last(),
+        ToDateInput: ()=>this.page.locator('input[class="oxd-input oxd-input--active"]').last(),
         applybtn:()=>this.page.locator('button[class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'),
         approveLeavebtn: ()=> this.page.locator('button[class="oxd-button oxd-button--medium oxd-button--label-success oxd-table-cell-action-space"'),
         rejectLeavebtn:()=>this.page.locator('button[class="oxd-button oxd-button--medium oxd-button--label-danger oxd-table-cell-action-space"]'),
+        applyLeaveShortcut: ()=>this.page.locator('button[title="Apply Leave"]'),
+    }
+    async navigatetoapplyquick(){
+        this.elements.applyLeaveShortcut().click();
     }
    async  navigateToAddEntitlements(){
         await this.elements.EntitlementsSpan().click();
