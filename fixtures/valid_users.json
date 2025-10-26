@@ -4,6 +4,8 @@
     "password": "admin123"
   },
  { 
+  "firstname":"test",
+  "lastname":"user",
   "username": "testuser",
   "password":"H3lloWorld12!"
 }
