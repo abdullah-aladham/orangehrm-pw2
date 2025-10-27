@@ -1,4 +1,58 @@
-[{
-"Claim":""
+[
+   
+ {
+    "Test_name":"Accommodation Claim Successfuly with euro currency",
+"Event":"Accommodation",
+"Currency":"Euro",
+"ExpensesType" :"Accommodation",
+"ExpenseAmount":"10",
+"Note":""
 },
-{}]
+ {
+    "Test_name":"Accommodation Claim Successfuly with usd currency",
+"Event":"Travel Allowance",
+"Currency":"United States Dollar",
+"ExpensesType" :"Accommodation",
+"ExpenseDate":"25-10-2025",
+"ExpenseAmount":"10",
+"Note":""
+},
+ {
+    "Test_name":"Accommodation Claim Successfuly with New Zaire currency",
+"Event":"Medical Reimbursement",
+"Currency":"New Zaire",
+"ExpensesType" :"Transport",
+"ExpenseDate":"14-10-2025",
+"ExpenseAmount":"250",
+"Note":""
+},
+{
+    "Test_name": "Claim fails due to wrong date format",
+    "Event":"Medical Reimbursement",
+"Currency":"New Zaire",
+"ExpensesType" :"Transport",
+"ExpenseDate":"10-14-2025",
+"ExpenseAmount":"250",
+"Note":""
+},
+{
+    
+    "Test_name": "Claim fails due to no currency added",
+    "Event":"Medical Reimbursement",
+"Currency":"New Zaire",
+"ExpensesType" :"Transport",
+"ExpenseDate":"10-14-2025",
+"ExpenseAmount":"250",
+"Note":""
+},
+{
+    
+    "Test_name": "Claim fails due to no currency added",
+    "Event":"Medical Reimbursement",
+"Currency":"New Zaire",
+"ExpensesType" :"Transport",
+"ExpenseDate":"10-14-2025",
+"ExpenseAmount":"250",
+"Note":""
+}
+]
