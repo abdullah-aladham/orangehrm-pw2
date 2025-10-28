@@ -10,7 +10,7 @@ import AddEmployee from '../../Pages/AddEmployee.pom'
 //valid_users.json file loading process
 const datafile = path.join(__dirname, "../../fixtures/valid_users.json");
 const valid_users = JSON.parse(fs.readFileSync(datafile, "utf-8"));
-test(' Employee applies for leave via API Req and admin approves it ',async({page,page2})=>{
+test(' Employee applies for leave via API Req and admin approves it ',async({page})=>{
   const firstname=faker.person.firstName();
   const lastName =faker.person.lastName();
   const username=faker.internet.username();
@@ -41,14 +41,14 @@ await loginobj.logout();
 
 
 // await loginobj.login(emp.username,emp.password);
-const emploginobj:Login =new Login(page2);
+// const emploginobj:Login =new Login(page2);
 await empleaveobj.navigatetoapplyquick();
 await empleaveobj.ApplytoLeave(fromDate,toDate);
 await expect(page.locator('div[class="oxd-toast oxd-toast--success oxd-toast-container--toast"]')).toBeVisible();
 // await loginobj.logout();
 // await emploginobj.login();
 
-await expect(emploginobj.pageUrlAssertion());
+await expect(loginobj.pageUrlAssertion());
 await adminpageobj.NavigatetoLeavePage();
 await adminpageobj.LeavePageAssertion();
 await empleaveobj.approveLeave();

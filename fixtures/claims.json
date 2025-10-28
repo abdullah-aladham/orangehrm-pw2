@@ -36,18 +36,17 @@
 "Note":""
 },
 {
-    
-    "Test_name": "Claim fails due to no currency added",
+    "Test_name":"Claim fails due to no currency added",
     "Event":"Medical Reimbursement",
-"Currency":"New Zaire",
-"ExpensesType" :"Transport",
-"ExpenseDate":"10-14-2025",
-"ExpenseAmount":"250",
-"Note":""
+    "Currency":"",
+    "ExpensesType" :"Transport",
+    "ExpenseDate":"10-14-2025",
+    "ExpenseAmount":"250",
+    "Note":""
 },
 {
     
-    "Test_name": "Claim fails due to no currency added",
+    "Test_name": "Claim fails due to invalid date format",
     "Event":"Medical Reimbursement",
 "Currency":"New Zaire",
 "ExpensesType" :"Transport",

@@ -20,6 +20,8 @@ class addEmployeePage {
     password: () => this.page.locator("input[type='password']").first(),
     confirmpass: () => this.page.locator('input[type="password"]').last(),
     Savebtn: () => this.page.getByText("Save"),
+    successfulySaved:()=>this.page.locator('.oxd-toast oxd-toast--success oxd-toast-container--toast'),
+
   };
   async AddNewEmployee(
     firstName: string,
@@ -64,6 +66,9 @@ class addEmployeePage {
    const slashsplit= parsing.pathname.split('/');
    const EmpNum=slashsplit[slashsplit.length-1];
    console.log('Employee Number is' + EmpNum);
+  }
+  async AddedSuccessfulyAssertion(){
+    await expect(this.elements.successfulySaved()).toBeVisible();
   }
 }
 export default addEmployeePage;
