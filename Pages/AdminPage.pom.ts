@@ -36,8 +36,8 @@ class AdminPage {
     ); 
   }
   async NavigateToClaimsPage(){
-    this.elements.Claim().click();
-    expect(this.page).toHaveURL("/claim/viewAssignClaim")
+   await this.elements.Claim().click();
+   await expect(this.page).toHaveURL("/claim/viewAssignClaim")
   }
 }
 export default AdminPage;
