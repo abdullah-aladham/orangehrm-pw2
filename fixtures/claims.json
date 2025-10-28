@@ -6,7 +6,8 @@
 "Currency":"Euro",
 "ExpensesType" :"Accommodation",
 "ExpenseAmount":"10",
-"Note":""
+"Note":"",
+"Admin_response":"Approved"
 },
  {
     "Test_name":"Accommodation Claim Successfuly with usd currency",
@@ -15,7 +16,9 @@
 "ExpensesType" :"Accommodation",
 "ExpenseDate":"25-10-2025",
 "ExpenseAmount":"10",
-"Note":""
+"Note":"",
+"Admin_response":"Rejected"
+
 },
  {
     "Test_name":"Accommodation Claim Successfuly with New Zaire currency",
@@ -24,7 +27,9 @@
 "ExpensesType" :"Transport",
 "ExpenseDate":"14-10-2025",
 "ExpenseAmount":"250",
-"Note":""
+"Note":"",
+"Admin_response":"Pending"
+
 },
 {
     "Test_name": "Claim fails due to wrong date format",
@@ -33,7 +38,9 @@
 "ExpensesType" :"Transport",
 "ExpenseDate":"10-14-2025",
 "ExpenseAmount":"250",
-"Note":""
+"Note":"",
+"Admin_response":"Rejected"
+
 },
 {
     "Test_name":"Claim fails due to no currency added",
@@ -42,7 +49,9 @@
     "ExpensesType" :"Transport",
     "ExpenseDate":"10-14-2025",
     "ExpenseAmount":"250",
-    "Note":""
+    "Note":"",
+    "Admin_response":"Pending"
+
 },
 {
     
@@ -52,6 +61,8 @@
 "ExpensesType" :"Transport",
 "ExpenseDate":"10-14-2025",
 "ExpenseAmount":"250",
-"Note":""
+"Note":"",
+"Admin_response":"Approved"
+
 }
 ]
