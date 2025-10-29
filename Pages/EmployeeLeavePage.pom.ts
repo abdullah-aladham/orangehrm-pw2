@@ -1,7 +1,8 @@
 import { expect, Page } from "@playwright/test"
-
+// import {faker}from '@faker-js/faker'
 class EmployeeLeavePage{
     readonly page:Page;
+    
     constructor(page:Page){
         this.page=page;
     }
@@ -24,6 +25,7 @@ class EmployeeLeavePage{
         rejectLeavebtn:()=>this.page.locator('button[class="oxd-button oxd-button--medium oxd-button--label-danger oxd-table-cell-action-space"]'),
         applyLeaveShortcut: ()=>this.page.locator('button[title="Apply Leave"]'),
     }
+
     async navigatetoapplyquick(){
         this.elements.applyLeaveShortcut().click();
     }
