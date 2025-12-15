@@ -6,5 +6,10 @@
   {
     "username": "Admin",
     "password": "admin12"
+  },
+  {
+    "firstname":"invalid",
+    "lastName":"user"
+
   }
 ]

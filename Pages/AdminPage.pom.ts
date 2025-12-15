@@ -1,3 +1,4 @@
+import { th } from "@faker-js/faker";
 import { Page, expect } from "@playwright/test";
 
 class AdminPage {
@@ -24,6 +25,19 @@ class AdminPage {
     await expect(this.page).toHaveURL(
       "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList",
     );
+  }
+  async NavigatetoLeavePage(){
+    await this.page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/leave/applyLeave");
+   
+  }
+  async LeavePageAssertion(){
+     await expect(this.page).toHaveURL(
+      "https://opensource-demo.orangehrmlive.com/web/index.php/leave/viewMyLeaveList"
+    ); 
+  }
+  async NavigateToClaimsPage(){
+   await this.elements.Claim().click();
+   await expect(this.page).toHaveURL("/claim/viewAssignClaim")
   }
 }
 export default AdminPage;
